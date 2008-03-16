@@ -1,0 +1,105 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 04_gcc4.3fix.dpatch by Ikuya Awashiro <ikuya@oooug.jp>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: No description.
+
+@DPATCH@
+diff -urNad kasumi-2.2~/KasumiConfiguration.cxx kasumi-2.2/KasumiConfiguration.cxx
+--- kasumi-2.2~/KasumiConfiguration.cxx	2006-10-15 22:47:02.000000000 +0900
++++ kasumi-2.2/KasumiConfiguration.cxx	2007-04-02 21:11:23.000000000 +0900
+@@ -23,6 +23,7 @@
+  * 
+ *********************************************************************/
+ 
++#include <cstdlib>
+ #include <iostream>
+ #include <fstream>
+ #include <map>
+diff -urNad kasumi-2.2~/KasumiDic.cxx kasumi-2.2/KasumiDic.cxx
+--- kasumi-2.2~/KasumiDic.cxx	2006-06-20 23:41:47.000000000 +0900
++++ kasumi-2.2/KasumiDic.cxx	2007-04-02 21:09:28.000000000 +0900
+@@ -33,6 +33,7 @@
+ }
+ #include <anthy/anthy.h>
+ #include <stdio.h>
++#include <cstdlib>
+ #include <iostream>
+ #include <fstream>
+ #include <sstream>
+diff -urNad kasumi-2.2~/KasumiException.cxx kasumi-2.2/KasumiException.cxx
+--- kasumi-2.2~/KasumiException.cxx	2006-06-26 16:20:27.000000000 +0900
++++ kasumi-2.2/KasumiException.cxx	2007-04-02 21:10:35.000000000 +0900
+@@ -24,6 +24,7 @@
+ *********************************************************************/
+ 
+ #include <gtk/gtk.h>
++#include <cstdlib>
+ #include <iostream>
+ #include "KasumiException.hxx"
+ 
+diff -urNad kasumi-2.2~/KasumiMainWindow.cxx kasumi-2.2/KasumiMainWindow.cxx
+--- kasumi-2.2~/KasumiMainWindow.cxx	2006-11-28 21:57:16.000000000 +0900
++++ kasumi-2.2/KasumiMainWindow.cxx	2007-04-02 21:11:07.000000000 +0900
+@@ -26,6 +26,7 @@
+ 
+ #include <gtk/gtk.h>
+ #include "cellrendererspin.h"
++#include <cstdlib>
+ #include <iostream>
+ #include "KasumiMainWindow.hxx"
+ #include "KasumiException.hxx"
+diff -urNad kasumi-2.2~/KasumiString.cxx kasumi-2.2/KasumiString.cxx
+--- kasumi-2.2~/KasumiString.cxx	2006-05-27 02:41:25.000000000 +0900
++++ kasumi-2.2/KasumiString.cxx	2007-04-02 21:10:18.000000000 +0900
+@@ -24,6 +24,7 @@
+ *********************************************************************/
+ 
+ #include "KasumiString.hxx"
++#include <cstdlib>
+ #include <iostream>
+ #include <sstream>
+ 
+diff -urNad kasumi-2.2~/KasumiWord.cxx kasumi-2.2/KasumiWord.cxx
+--- kasumi-2.2~/KasumiWord.cxx	2006-10-14 16:31:21.000000000 +0900
++++ kasumi-2.2/KasumiWord.cxx	2007-04-02 21:09:58.000000000 +0900
+@@ -23,6 +23,7 @@
+  * 
+  *********************************************************************/
+ 
++#include <cstdlib>
+ #include <string>
+ #include <map>
+ #include <iconv.h>
+--- a/KasumiAddWindow.cxx
++++ b/KasumiAddWindow.cxx
+@@ -43,6 +43,8 @@
+ #include "config.h"
+ #endif
+ 
++#include <algorithm>
++
+ using namespace std;
+ 
+ KasumiAddWindow::KasumiAddWindow(KasumiDic *aDictionary,
+--- a/KasumiWord.cxx
++++ b/KasumiWord.cxx
+@@ -34,6 +34,7 @@
+ #include "intl.h"
+ 
+ #include <iostream>
++#include <cstring>
+ 
+ #define VECTOR_UNIT 10
+ 
+--- a/main.cxx
++++ b/main.cxx
+@@ -43,6 +43,8 @@
+ #include "anthy/dicutil.h"
+ }
+ 
++#include <cstring>
++
+ using namespace std;
+ 
+ void showHelp(){
