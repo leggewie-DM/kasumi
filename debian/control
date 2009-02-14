@@ -1,7 +1,8 @@
 Source: kasumi
 Section: x11
 Priority: optional
-Maintainer: Ikuya Awashiro <ikuya@oooug.jp>
+Maintainer: Ubuntu MOTU Developers <ubuntu-motu@lists.ubuntu.com>
+XSBC-Original-Maintainer: Ikuya Awashiro <ikuya@oooug.jp>
 Uploaders: Akira TAGOH <tagoh@debian.org>
 Build-Depends: debhelper (>= 4.0.0), libgtk2.0-dev, gettext, autotools-dev, dpatch, xsltproc, docbook-xsl, libanthy-dev
 Standards-Version: 3.7.2

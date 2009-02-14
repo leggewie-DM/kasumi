@@ -1,3 +1,11 @@
+kasumi (2.4-0ubuntu1) jaunty; urgency=low
+
+  * New upstream release
+  * debian/patches/00list: removed 04_gcc4.3fix and 05_patch-local-kasumidic.
+    Already included by upstream.
+
+ -- Ikuya Awashiro <ikuya@fruitsbasket.info>  Sat, 14 Feb 2009 15:29:10 +0000
+
 kasumi (2.2-1.1) unstable; urgency=low
 
   * Non-maintainer upload.
