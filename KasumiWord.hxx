@@ -43,12 +43,13 @@ using namespace std;
 
 class KasumiWord{
 private:
+    bool IsEUCJP;
     string Sound; // corresponding "Yomi" in private-dic.src
     string Sound_UTF8;
     int Frequency; // corresponding "Hindo"
     string Spelling; // corresponding "Tango"
     string Spelling_UTF8;
-    size_t id;
+    unsigned int id;
     vector<KasumiWordEventListener*> EventListeners;
 
     KasumiWordType *mWordType;
@@ -60,7 +61,7 @@ private:
     // if no invalid character, returns empty string
     static string extractInvalidCharacterFromSound(string soundByUTF8);
 
-    static size_t id_generator;
+    static unsigned int id_generator;
     static vector<KasumiWord*> words;
 
     KasumiWord(KasumiConfiguration *conf);
@@ -87,12 +88,12 @@ public:
     KasumiWordType *getWordType() { return mWordType; };
     string getWordTypeUIString(); // UTF8
 
-    size_t getID(){ return id; };
+    unsigned int getID(){ return id; };
 
     void registerEventListener(KasumiWordEventListener *listener);
     void removeEventListener(KasumiWordEventListener *listener);
 
-    static KasumiWord *getWordFromID(size_t id);
+    static KasumiWord *getWordFromID(unsigned int id);
 
     static string convertUTF8ToEUCJP(const string &aEUCJP);
     static string convertEUCJPToUTF8(const string &aUTF8);  

@@ -29,7 +29,8 @@
 #endif
 
 #include <gtk/gtk.h>
-#include <stdlib.h>
+#include <cstdlib>
+#include <cstring>
 #include <time.h>
 #include <iostream>
 #include <string>
@@ -40,7 +41,8 @@
 #include "KasumiException.hxx"
 #include "intl.h"
 extern "C"{  // ad-hoc solution for a defect of Anthy
-#include "anthy/dicutil.h"
+#include <anthy/anthy.h>
+#include <anthy/dicutil.h>
 }
 
 using namespace std;
@@ -62,6 +64,9 @@ void showHelp(){
   //  cout << "  -y val           Set default vertical window position" << endl;
   cout << "  -i --import      Import selected text as a spelling" << endl;
   cout << "  -I --ignore      Ignore selected text" << endl;
+#ifdef HAS_ANTHY_DICUTIL_SET_ENCODING
+  cout << "  -E --eucjp       Use EUC-JP encoding for dictionary" << endl;
+#endif // HAS_ANTHY_DICUTIL_SET_ENCODING
   cout << endl;
 }
 
@@ -167,12 +172,12 @@ static GtkWidget *check_duplicated_process (int argc, char *argv[])
     while (gtk_events_pending())
       gtk_main_iteration();
   if (instance > 0) {
-    /* Kasumi process is already exists */
+    /* Kasumi process already exists */
     while (arg_text != NULL)
       while (gtk_events_pending())
 	gtk_main_iteration();
     gtk_widget_destroy(window);
-    cerr << "Kasumi process is already exists." << endl;
+    cerr << "Kasumi process already exists." << endl;
     return NULL;
   }
   g_free(arg_text);
@@ -203,6 +208,13 @@ int main(int argc, char *argv[])
 
     KasumiWordType::initWordTypeList();      
     KasumiConfiguration *conf = new KasumiConfiguration(argc, argv);
+
+#ifdef HAS_ANTHY_DICUTIL_SET_ENCODING
+    if (conf->getPropertyValueByBool("UseEUCJP"))
+      anthy_dic_util_set_encoding(ANTHY_EUC_JP_ENCODING);
+    else
+      anthy_dic_util_set_encoding(ANTHY_UTF8_ENCODING);
+#endif // HAS_ANTHY_DICUTIL_SET_ENCODING
 
     KasumiDic *dic = new KasumiDic(conf);
 
