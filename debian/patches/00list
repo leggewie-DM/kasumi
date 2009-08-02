@@ -1,3 +1,3 @@
 # dpatch is used for patching kasumi in Debian
-#
-# no patches necessary
+
+10_validate_kasumi.desktop.dpatch
