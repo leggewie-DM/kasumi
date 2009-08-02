@@ -64,11 +64,13 @@ KasumiAddWindow::KasumiAddWindow(KasumiDic *aDictionary,
 
     // creating vbox for text entries, spin button and so on.
     GtkWidget *vbox = gtk_vbox_new(FALSE,0);
+    gtk_container_set_border_width(GTK_CONTAINER(vbox), 6);
     gtk_container_add(GTK_CONTAINER(window),vbox);  
 
     // creating text entries for "Spelling"
     GtkWidget *label = gtk_label_new(_("Spelling"));
-    GtkWidget *alignment = gtk_alignment_new(0,0.5,0,0);
+    GtkWidget *alignment = gtk_alignment_new(0, 0.5, 0, 0);
+    gtk_alignment_set_padding(GTK_ALIGNMENT(alignment), 0, 0, 6, 6);
     gtk_container_add(GTK_CONTAINER(alignment),GTK_WIDGET(label));
     gtk_box_pack_start(GTK_BOX(vbox),GTK_WIDGET(alignment),FALSE,FALSE,0);
 
@@ -77,11 +79,15 @@ KasumiAddWindow::KasumiAddWindow(KasumiDic *aDictionary,
     if (IsEUCJP) spelling = KasumiWord::convertEUCJPToUTF8(spelling);
     gtk_entry_set_text(GTK_ENTRY(SpellingEntry),
 		       spelling.c_str());
-    gtk_box_pack_start(GTK_BOX(vbox),GTK_WIDGET(SpellingEntry),FALSE,FALSE,0);
+    alignment = gtk_alignment_new(0, 0.5, 1.0, 1.0);
+    gtk_alignment_set_padding(GTK_ALIGNMENT(alignment), 0, 6, 6, 6);
+    gtk_container_add(GTK_CONTAINER(alignment), SpellingEntry);
+    gtk_box_pack_start(GTK_BOX(vbox),GTK_WIDGET(alignment),FALSE,FALSE,0);
 
     // creating text entries for "Sound"
     label = gtk_label_new(_("Sound"));
-    alignment = gtk_alignment_new(0,0.5,0,0);
+    alignment = gtk_alignment_new(0, 0.5, 0, 0);
+    gtk_alignment_set_padding(GTK_ALIGNMENT(alignment), 0, 0, 6, 6);
     gtk_container_add(GTK_CONTAINER(alignment),GTK_WIDGET(label));
     gtk_box_pack_start(GTK_BOX(vbox),GTK_WIDGET(alignment),FALSE,FALSE,0);
 
@@ -90,11 +96,15 @@ KasumiAddWindow::KasumiAddWindow(KasumiDic *aDictionary,
     if (IsEUCJP) sound = KasumiWord::convertEUCJPToUTF8(sound);
     gtk_entry_set_text(GTK_ENTRY(SoundEntry),
 		       sound.c_str());
-    gtk_box_pack_start(GTK_BOX(vbox),GTK_WIDGET(SoundEntry),FALSE,FALSE,0);
+    alignment = gtk_alignment_new(0, 0.5, 1.0, 1.0);
+    gtk_alignment_set_padding(GTK_ALIGNMENT(alignment), 0, 6, 6, 6);
+    gtk_container_add(GTK_CONTAINER(alignment), SoundEntry);
+    gtk_box_pack_start(GTK_BOX(vbox),GTK_WIDGET(alignment),FALSE,FALSE,0);
 
     // creating spin button for "Frequency"
     label = gtk_label_new(_("Frequency"));
-    alignment = gtk_alignment_new(0,0.5,0,0);
+    alignment = gtk_alignment_new(0, 0.5, 0, 0);
+    gtk_alignment_set_padding(GTK_ALIGNMENT(alignment), 0, 0, 6, 6);
     gtk_container_add(GTK_CONTAINER(alignment),GTK_WIDGET(label));
     gtk_box_pack_start(GTK_BOX(vbox),GTK_WIDGET(alignment),FALSE,FALSE,0);
 
@@ -108,11 +118,15 @@ KasumiAddWindow::KasumiAddWindow(KasumiDic *aDictionary,
 					       FREQ_UBOUND / 100
 					       ,0);
     FrequencySpin = gtk_spin_button_new(GTK_ADJUSTMENT(adjustment),1.0,0);
-    gtk_box_pack_start(GTK_BOX(vbox),GTK_WIDGET(FrequencySpin),FALSE,FALSE,0);
+    alignment = gtk_alignment_new(0, 0.5, 1.0, 1.0);
+    gtk_alignment_set_padding(GTK_ALIGNMENT(alignment), 0, 6, 6, 6);
+    gtk_container_add(GTK_CONTAINER(alignment), FrequencySpin);
+    gtk_box_pack_start(GTK_BOX(vbox),GTK_WIDGET(alignment),FALSE,FALSE,0);
 
-    // creating combo box for "Word Type Category"
-    label = gtk_label_new(_("Word Type Category"));
-    alignment = gtk_alignment_new(0,0.5,0,0);
+    // creating combo box for "Word Type"
+    label = gtk_label_new(_("Word Type"));
+    alignment = gtk_alignment_new(0, 0.5, 0, 0);
+    gtk_alignment_set_padding(GTK_ALIGNMENT(alignment), 0, 0, 6, 6);
     gtk_container_add(GTK_CONTAINER(alignment),GTK_WIDGET(label));
     gtk_box_pack_start(GTK_BOX(vbox),GTK_WIDGET(alignment),FALSE,FALSE,0);
 
@@ -149,15 +163,19 @@ KasumiAddWindow::KasumiAddWindow(KasumiDic *aDictionary,
 				   "text", COL_UI_STRING,
 				   NULL);
     gtk_combo_box_set_active_iter(GTK_COMBO_BOX(WordTypeCategoryCombo), &defaultWordTypeCategoryIter);
+    alignment = gtk_alignment_new(0, 0.5, 1.0, 1.0);
+    gtk_alignment_set_padding(GTK_ALIGNMENT(alignment), 0, 6, 6, 6);
+    gtk_container_add(GTK_CONTAINER(alignment), WordTypeCategoryCombo);
     gtk_box_pack_start(GTK_BOX(vbox),
-		       GTK_WIDGET(WordTypeCategoryCombo),FALSE,FALSE,0);
+		       GTK_WIDGET(alignment),FALSE,FALSE,0);
     g_signal_connect(G_OBJECT(WordTypeCategoryCombo),"changed",
 		     G_CALLBACK(_call_back_word_type_category_changed),this);
 
 
-    // creating combo box for "Word Type"
-    label = gtk_label_new(_("Word Type"));
-    alignment = gtk_alignment_new(0,0.5,0,0);
+    // creating combo box for "Subcategory of Word Type"
+    label = gtk_label_new(_("Subcategory of Word Type"));
+    alignment = gtk_alignment_new(0, 0.5, 0, 0);
+    gtk_alignment_set_padding(GTK_ALIGNMENT(alignment), 0, 0, 6, 6);
     gtk_container_add(GTK_CONTAINER(alignment),GTK_WIDGET(label));
     gtk_box_pack_start(GTK_BOX(vbox),GTK_WIDGET(alignment),FALSE,FALSE,0);
 
@@ -168,57 +186,33 @@ KasumiAddWindow::KasumiAddWindow(KasumiDic *aDictionary,
     gtk_cell_layout_set_attributes(GTK_CELL_LAYOUT(WordTypeCombo), renderer,
 				   "text", COL_UI_STRING,
 				   NULL);
+    alignment = gtk_alignment_new(0, 0.5, 1.0, 1.0);
+    gtk_alignment_set_padding(GTK_ALIGNMENT(alignment), 0, 12, 6, 6);
+    gtk_container_add(GTK_CONTAINER(alignment), WordTypeCombo);
     gtk_box_pack_start(GTK_BOX(vbox),
-		       GTK_WIDGET(WordTypeCombo),FALSE,FALSE,0);
+		       GTK_WIDGET(alignment),FALSE,FALSE,0);
     ChangeWordTypeList(true);
 
     // creating box for buttons
     GtkWidget *hbutton_box = gtk_hbutton_box_new();
+    gtk_box_set_spacing(GTK_BOX(hbutton_box),6);
     gtk_button_box_set_layout(GTK_BUTTON_BOX(hbutton_box),GTK_BUTTONBOX_SPREAD);
-    gtk_box_pack_start(GTK_BOX(vbox),GTK_WIDGET(hbutton_box),FALSE,FALSE,0);
+    gtk_box_pack_start(GTK_BOX(vbox),GTK_WIDGET(hbutton_box),FALSE,FALSE,6);
 
     if( conf->getPropertyValue("StartupMode") == "EXCLUSIVE" )
     {
-	GtkWidget *button = gtk_button_new();
-	label = gtk_label_new(_("Add"));
-	GtkWidget *button_image = gtk_image_new_from_stock(GTK_STOCK_ADD,
-						GTK_ICON_SIZE_BUTTON);
-	GtkWidget *in_box = gtk_hbox_new(FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(in_box), button_image, FALSE, FALSE, 3);
-	gtk_box_pack_start(GTK_BOX(in_box), label, FALSE, FALSE, 3);
-	gtk_container_add(GTK_CONTAINER(button),in_box);
+	GtkWidget *button = gtk_button_new_from_stock(GTK_STOCK_ADD);
 	gtk_box_pack_start(GTK_BOX(hbutton_box),GTK_WIDGET(button),TRUE,TRUE,0);
 	g_signal_connect(G_OBJECT(button),"clicked",
 			 G_CALLBACK(_call_back_add_window_add),this);
-	GtkAccelGroup *accel = gtk_accel_group_new();
-	gtk_window_add_accel_group(GTK_WINDOW(window), accel);
-	string key = string("Ctrl+A");
-	gtk_widget_add_accelerator(button, "clicked", accel,
-				   getAccelKey(key),
-				   getModifierType(key),
-				   GTK_ACCEL_VISIBLE);
 	gtk_tooltips_set_tip(Tooltips, button,
 			     _("Add entered word and quit registration."),
 			     _("If all the necessary items are filled in, add entered word and quit registration."));
 
-	button = gtk_button_new();
-	label = gtk_label_new(_("Cancel"));
-	button_image = gtk_image_new_from_stock(GTK_STOCK_QUIT,
-						GTK_ICON_SIZE_BUTTON);
-	in_box = gtk_hbox_new(FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(in_box), button_image, FALSE, FALSE, 3);
-	gtk_box_pack_start(GTK_BOX(in_box), label, FALSE, FALSE, 3);
-	gtk_container_add(GTK_CONTAINER(button),in_box);
+	button = gtk_button_new_from_stock(GTK_STOCK_CLOSE);
 	gtk_box_pack_start(GTK_BOX(hbutton_box),GTK_WIDGET(button),TRUE,TRUE,0);
 	g_signal_connect(G_OBJECT(button),"clicked",
 			 G_CALLBACK(_call_back_add_window_quit),this);
-	accel = gtk_accel_group_new();
-	gtk_window_add_accel_group(GTK_WINDOW(window), accel);
-	key = string("Ctrl+C");
-	gtk_widget_add_accelerator(button, "clicked", accel,
-				   getAccelKey(key),
-				   getModifierType(key),
-				   GTK_ACCEL_VISIBLE);
 	gtk_tooltips_set_tip(Tooltips, button,
 			     _("Cancel registration and quit."),
 			     _("Cancel registration and quit."));
@@ -229,71 +223,29 @@ KasumiAddWindow::KasumiAddWindow(KasumiDic *aDictionary,
     {
 	// ADD mode
 	// creating buttons and configure shortcut key
-	GtkWidget *button = gtk_button_new();
-	label = gtk_label_new(_("Quit"));
-	GtkWidget *button_image = gtk_image_new_from_stock(GTK_STOCK_QUIT,
-							   GTK_ICON_SIZE_BUTTON);
-	GtkWidget *in_box = gtk_hbox_new(FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(in_box), button_image, FALSE, FALSE, 3);
-	gtk_box_pack_start(GTK_BOX(in_box), label, FALSE, FALSE, 3);
-	gtk_container_add(GTK_CONTAINER(button),in_box);
-	gtk_box_pack_start(GTK_BOX(hbutton_box),GTK_WIDGET(button),TRUE,TRUE,0);
-	g_signal_connect(G_OBJECT(button),"clicked",
-			 G_CALLBACK(_call_back_add_window_quit),this);
-	GtkAccelGroup *accel = gtk_accel_group_new();
-	gtk_window_add_accel_group(GTK_WINDOW(window), accel);
-	string key = string("Ctrl+Q");
-	gtk_widget_add_accelerator(button, "clicked", accel,
-				   getAccelKey(key),
-				   getModifierType(key),
-				   GTK_ACCEL_VISIBLE);
-	gtk_tooltips_set_tip(Tooltips, button,
-			     _("Quit this application"),
-			     _("Save dictionary and quit this application."));
-
-	button = gtk_button_new();
-	label = gtk_label_new(_("Add"));
-	button_image = gtk_image_new_from_stock(GTK_STOCK_ADD,
-						GTK_ICON_SIZE_BUTTON);
-	in_box = gtk_hbox_new(FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(in_box), button_image, FALSE, FALSE, 3);
-	gtk_box_pack_start(GTK_BOX(in_box), label, FALSE, FALSE, 3);
-	gtk_container_add(GTK_CONTAINER(button),in_box);
+	GtkWidget *button = gtk_button_new_from_stock(GTK_STOCK_ADD);
 	gtk_box_pack_start(GTK_BOX(hbutton_box),GTK_WIDGET(button),TRUE,TRUE,0);
 	g_signal_connect(G_OBJECT(button),"clicked",
 			 G_CALLBACK(_call_back_add_window_add),this);
-	accel = gtk_accel_group_new();
-	gtk_window_add_accel_group(GTK_WINDOW(window), accel);
-	key = string("Ctrl+A");
-	gtk_widget_add_accelerator(button, "clicked", accel,
-				   getAccelKey(key),
-				   getModifierType(key),
-				   GTK_ACCEL_VISIBLE);
 	gtk_tooltips_set_tip(Tooltips, button,
 			     _("Add entered word"),
 			     _("If all the necessary items are filled in, add entered word."));
 
-	button = gtk_button_new();
-	label = gtk_label_new(_("Edit"));
-	button_image = gtk_image_new_from_stock(GTK_STOCK_FIND_AND_REPLACE,
-						GTK_ICON_SIZE_BUTTON);
-	in_box = gtk_hbox_new(FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(in_box), button_image, FALSE, FALSE, 3);
-	gtk_box_pack_start(GTK_BOX(in_box), label, FALSE, FALSE, 3);
-	gtk_container_add(GTK_CONTAINER(button),in_box);
+	button = gtk_button_new_from_stock(GTK_STOCK_EDIT);
 	gtk_box_pack_start(GTK_BOX(hbutton_box),GTK_WIDGET(button),TRUE,TRUE,0);
 	g_signal_connect(G_OBJECT(button),"clicked",
 			 G_CALLBACK(_call_back_manage_mode),this);
-	accel = gtk_accel_group_new();
-	gtk_window_add_accel_group(GTK_WINDOW(window), accel);
-	key = string("Ctrl+M");
-	gtk_widget_add_accelerator(button, "clicked", accel,
-				   getAccelKey(key),
-				   getModifierType(key),
-				   GTK_ACCEL_VISIBLE);
 	gtk_tooltips_set_tip(Tooltips, button,
 			     _("Manage mode"),
 			     _("Make the shift to manage mode to modify and remove registered words."));
+
+	button = gtk_button_new_from_stock(GTK_STOCK_CLOSE);
+	gtk_box_pack_start(GTK_BOX(hbutton_box),GTK_WIDGET(button),TRUE,TRUE,0);
+	g_signal_connect(G_OBJECT(button),"clicked",
+			 G_CALLBACK(_call_back_add_window_quit),this);
+	gtk_tooltips_set_tip(Tooltips, button,
+			     _("Quit this application"),
+			     _("Save dictionary and quit this application."));
 
 	// get selection at the time of launching
 	g_signal_connect(G_OBJECT(SpellingEntry),"selection_received",
