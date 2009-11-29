@@ -10,7 +10,7 @@ Standards-Version: 3.8.2
 
 Package: kasumi
 Architecture: any
-Depends: ${shlibs:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}
 Recommends: anthy
 Description: Simple dictionary utility for Anthy
  Kasumi is personal dictionary management tool for Anthy.
