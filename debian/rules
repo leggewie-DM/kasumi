@@ -31,7 +31,7 @@ configure-stamp: patch-stamp
 	dh_testdir
 	for file in config.sub config.guess ; do \
 		mv -f "$$file" "$$file".orig ;\
-		[ ! -r /usr/share/misc/"$$file" ] || cp -f /usr/share/misc/"$$file" "$$file" ;\
+		cp -f /usr/share/misc/"$$file" "$$file" ;\
 	done
 	# Add here commands to configure the package.
 	CFLAGS="$(CFLAGS)" ./configure --host=$(DEB_HOST_GNU_TYPE) --build=$(DEB_BUILD_GNU_TYPE) --prefix=/usr --mandir=\$${prefix}/share/man --infodir=\$${prefix}/share/info
