@@ -1,15 +1,28 @@
 This package was debianized by Ikuya Awashiro <ikuya@oooug.jp> on
-Tue,  7 Dec 2004 18:36:31 +0900.
+Tue, 7 Dec 2004 18:36:31 +0900.
 
 It was downloaded from <http://kasumi.sourceforge.jp/>
 
-Copyright:
+Copyright: 
+ Copyright (C) 2004-2006 Takashi Nakamoto
+ Copyright (C) 2005 Takuro Ashie
+ Copyright (C) 2006 Ikuya Awashiro
+
+ some code was borrowed from other sources
+
+ Copyright (C) 2003 Tim-Philipp Müller
+ Copyright (C) 1995-1997, 2000-2003 Ulrich Drepper
 
 Upstream Author: Takashi Nakamoto <bluedwarf@openoffice.org>
+ Takuro Ashie <ashie@homa.ne.jp>
+ Ikuya Awashiro <ikuya@fruitsbasket.info>
 
 License:
 
  You are free to distribute this software under the terms of
- the GNU General Public License.
+ the GNU General Public License, version 2 or later. The Debian
+ packaging is Copyright 2004-2009 Ikuya Awashiro and Copyright 2009
+ Rolf Leggewie and released under the terms of the GPLv2.
+
  On Debian systems, the complete text of the GNU General Public
- License can be found in the file `/usr/share/common-licenses/GPL'.
+ License can be found in the file `/usr/share/common-licenses/GPL-2'.
