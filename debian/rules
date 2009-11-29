@@ -32,7 +32,7 @@ config.status: configure
 configure: configure-stamp
 configure-stamp: patch-stamp
 	dh_testdir
-	for file in config.sub config.guess po/ja.gmo po/it.gmo ; do \
+	for file in config.sub config.guess ; do \
 		mv -f "$$file" "$$file".orig ;\
 		[ ! -r /usr/share/misc/"$$file" ] || cp -f /usr/share/misc/"$$file" "$$file" ;\
 	done
@@ -57,7 +57,8 @@ clean: unpatch
 	dh_testroot
 	rm -f build-stamp
 
-	for file in config.sub config.guess po/ja.gmo po/it.gmo ; do \
+	rm -f po/*.gmo
+	for file in config.sub config.guess ; do \
 		[ ! -r "$$file".orig ] || mv -f "$$file".orig "$$file" || : ;\
 	done
 
