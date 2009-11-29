@@ -44,7 +44,7 @@ build-stamp:  config.status
 
 	# Add here commands to compile the package.
 	$(MAKE)
-	cd po; make update-gmo; cd ../
+	$(MAKE) update-gmo -C po
 
 	touch build-stamp
 
