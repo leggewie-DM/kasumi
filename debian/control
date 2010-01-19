@@ -5,7 +5,7 @@ Maintainer: Ikuya Awashiro <ikuya@oooug.jp>
 Uploaders: Rolf Leggewie <foss@rolf.leggewie.biz>
 DM-Upload-Allowed: yes
 Homepage: http://kasumi.sourceforge.jp/
-Build-Depends: debhelper (>= 7.0.50~), libgtk2.0-dev, gettext, autotools-dev, dpatch, xsltproc, docbook-xsl, libanthy-dev
+Build-Depends: debhelper (>= 7.0.50~), libgtk2.0-dev, gettext, autotools-dev, dpatch, libanthy-dev
 Standards-Version: 3.8.2
 
 Package: kasumi
