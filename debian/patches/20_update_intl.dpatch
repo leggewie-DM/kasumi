@@ -1,0 +1,21 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 20_update_intl.dpatch by  <Rolf Leggewie <foss@rolf.leggewie.biz>>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: intl and gettext are more powerfule these days (patch has been pushed upstream)
+## DP: http://kasumi.sourceforge.jp/index.php?cmd=edit&page=%A5%D0%A5%B0%CA%F3%B9%F0%2F102
+
+@DPATCH@
+
+diff --git a/Makefile.am b/Makefile.am
+index bdbfc96..c610e6c 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -1,6 +1,6 @@
+ bin_PROGRAMS = kasumi
+ 
+-kasumi_SOURCES = main.cxx intl.h \
++kasumi_SOURCES = main.cxx kasumi.h \
+ 		KasumiDic.cxx KasumiDic.hxx \
+ 		KasumiWord.cxx KasumiWord.hxx \
+ 		KasumiWordType.cxx KasumiWordType.hxx \
