@@ -1,3 +1,22 @@
+kasumi (2.5-1) unstable; urgency=low
+
+  * new upstream release
+  * debian/control: 
+    - add ${misc:Depends} to run-time dependencies
+    - drop xsltproc and docbook-xsl from build-time dependencies
+    - add VCS-fields
+  * debian/copyright: update and augment copyright information
+  * debian/menu: move menu section to "Applications/Text"
+  * debian/patches: 
+    - 10_validate_kasumi.desktop.dpatch to validate desktop file
+    - 20_update_intl.dpatch to update gettext-related building
+  * debian/rules: radically simplify (LP: 403189)
+  * debian/watch: add watch file that can at least partially deal with
+    the braindead format from sourceforge.jp
+  * add debian/README.source
+
+ -- Rolf Leggewie <foss@rolf.leggewie.biz>  Wed, 03 Feb 2010 03:24:13 +0100
+
 kasumi (2.4-1) unstable; urgency=low
 
   * new upstream release, push back from Ubuntu Jaunty. (Closes: #483208)
