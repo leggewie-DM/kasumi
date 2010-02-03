@@ -1,6 +1,11 @@
 #!/usr/bin/make -f
 
+include /usr/share/dpatch/dpatch.make
+
 LDFLAGS += -Wl,-z,defs -Wl,--as-needed
+
+build: patch-stamp
+clean: unpatch
 
 %:
 	dh $@
