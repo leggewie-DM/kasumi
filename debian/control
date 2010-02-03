@@ -6,7 +6,7 @@ Uploaders: Rolf Leggewie <foss@rolf.leggewie.biz>
 DM-Upload-Allowed: yes
 Homepage: http://kasumi.sourceforge.jp/
 Build-Depends: debhelper (>= 7.0.50~), libgtk2.0-dev, gettext, autotools-dev, dpatch, libanthy-dev
-Standards-Version: 3.8.2
+Standards-Version: 3.8.4
 Vcs-Browser: http://git.debian.org/?p=collab-maint/kasumi.git
 Vcs-Git: git://git.debian.org/collab-maint/kasumi.git
 
@@ -15,7 +15,7 @@ Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Recommends: anthy
 Description: Simple dictionary utility for Anthy
- Kasumi is personal dictionary management tool for Anthy.
+ Kasumi is a personal dictionary management tool for Anthy.
  Anthy is a Japanese input method to convert Hiragana text to 
  Kana Kanji mixed text.
  .
