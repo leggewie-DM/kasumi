@@ -12,7 +12,7 @@ clean: unpatch
 
 override_dh_build:
 	dh_build
-	$(MAKE) -C po kasumi.pot
+	dh_auto_build -- update-gmo -C po
 
 override_dh_installchangelogs:
 	dh_installchangelogs ChangeLog
