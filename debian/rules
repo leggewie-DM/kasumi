@@ -1,11 +1,8 @@
 #!/usr/bin/make -f
 
-include /usr/share/dpatch/dpatch.make
+include /usr/share/quilt/quilt.make
 
 LDFLAGS += -Wl,-z,defs -Wl,--as-needed
-
-build: patch-stamp
-clean: unpatch
 
 %:
 	dh --with-autotools-dev $@

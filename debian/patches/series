@@ -1,4 +1,4 @@
-# dpatch is used for patching kasumi in Debian
+# quilt is used for patching kasumi in Debian
 
 10_validate_kasumi.desktop.dpatch
 20_update_intl.dpatch
