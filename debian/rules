@@ -8,7 +8,7 @@ build: patch-stamp
 clean: unpatch
 
 %:
-	dh $@
+	dh --with-autotools-dev $@
 
 override_dh_build:
 	dh_build
