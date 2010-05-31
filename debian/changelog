@@ -1,3 +1,14 @@
+kasumi (2.5-2) unstable; urgency=low
+
+  * move to DebSrc3.0 and drop thusly obsoleted quilt-specific stuff
+  * debian/rules:
+    - streamline dh_build override
+    - drop installchangelogs override
+    - readd call to autotools-dev lost during move to dh7-based rules file
+  * debian/watch: make sf.jp watch file more generic
+
+ -- Rolf Leggewie <foss@rolf.leggewie.biz>  Mon, 31 May 2010 10:13:38 +0900
+
 kasumi (2.5-1) unstable; urgency=low
 
   * new upstream release
