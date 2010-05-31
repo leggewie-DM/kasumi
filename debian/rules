@@ -8,6 +8,3 @@ LDFLAGS += -Wl,-z,defs -Wl,--as-needed
 override_dh_build:
 	dh_build
 	dh_auto_build -- update-gmo -C po
-
-override_dh_installchangelogs:
-	dh_installchangelogs ChangeLog
