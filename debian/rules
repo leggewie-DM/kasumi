@@ -3,7 +3,7 @@
 LDFLAGS += -Wl,-z,defs -Wl,--as-needed
 
 %:
-	dh $@ --with-autotools-dev
+	dh $@ --with-autotools-dev,autoreconf
 
 override_dh_build:
 	dh_build
