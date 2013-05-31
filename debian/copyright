@@ -22,8 +22,8 @@ License:
 
  You are free to distribute this software under the terms of
  the GNU General Public License, version 2 or later. The Debian
- packaging is Copyright 2004-2009 Ikuya Awashiro and Copyright 2009
- Rolf Leggewie and released under the terms of the GPLv2.
+ packaging is Copyright 2004-2009 Ikuya Awashiro and Copyright
+ 2009-2013 Rolf Leggewie and released under the terms of the GPLv2.
 
  On Debian systems, the complete text of the GNU General Public
  License can be found in the file `/usr/share/common-licenses/GPL-2'.
