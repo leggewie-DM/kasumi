@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Ikuya Awashiro <ikuya@oooug.jp>
 Uploaders: Rolf Leggewie <foss@rolf.leggewie.biz>
 Homepage: http://kasumi.sourceforge.jp/
-Build-Depends: debhelper (>= 7.0.50~), libgtk2.0-dev, gettext, autotools-dev, libanthy-dev
+Build-Depends: debhelper (>= 9), libgtk2.0-dev, gettext, autotools-dev, libanthy-dev
 Standards-Version: 3.8.4
 Vcs-Browser: http://git.debian.org/?p=collab-maint/kasumi.git
 Vcs-Git: git://git.debian.org/collab-maint/kasumi.git
