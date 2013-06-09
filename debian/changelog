@@ -1,3 +1,15 @@
+kasumi (2.5-3) unstable; urgency=low
+
+  * control:
+    - drop obsolete DMUA field
+    - switch roles of maintainer and uploader between Ikuya-san and me
+    - bump standard to 3.9.4
+  * copyright: update to 2013
+  * bump build process to dh9
+  * rules: reorder option and sequence in line with latest dh convention
+
+ -- Rolf Leggewie <foss@rolf.leggewie.biz>  Mon, 10 Jun 2013 00:49:26 +0200
+
 kasumi (2.5-2) unstable; urgency=low
 
   * move to DebSrc3.0 and drop thusly obsoleted quilt-specific stuff
