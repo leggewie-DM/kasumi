@@ -1,8 +1,8 @@
 Source: kasumi
 Section: x11
 Priority: optional
-Maintainer: Ikuya Awashiro <ikuya@oooug.jp>
-Uploaders: Rolf Leggewie <foss@rolf.leggewie.biz>
+Maintainer: Rolf Leggewie <foss@rolf.leggewie.biz>
+Uploaders: Ikuya Awashiro <ikuya@oooug.jp>
 Homepage: http://kasumi.sourceforge.jp/
 Build-Depends: debhelper (>= 9), libgtk2.0-dev, gettext, autotools-dev, libanthy-dev
 Standards-Version: 3.9.4
