@@ -1,3 +1,11 @@
+kasumi (2.5-4) unstable; urgency=low
+
+  * use dh-autoreconf to update the build system. Closes: #727912
+  * patches: update desktop file patch to add some keywords
+  * control: bump standard to 3.9.5.  No further changes.
+
+ -- Rolf Leggewie <foss@rolf.leggewie.biz>  Sat, 22 Feb 2014 17:22:05 +0800
+
 kasumi (2.5-3) unstable; urgency=low
 
   * control:
