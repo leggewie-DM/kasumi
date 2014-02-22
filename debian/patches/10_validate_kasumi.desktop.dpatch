@@ -8,7 +8,7 @@
 
 --- orig/kasumi.desktop.in	2006-06-03 16:30:07.000000000 +0200
 +++ new/kasumi.desktop.in	2009-08-02 05:21:42.000000000 +0200
-@@ -1,15 +1,14 @@
+@@ -1,15 +1,16 @@
  [Desktop Entry]
  Version=1.0
 -Encoding=UTF-8
@@ -27,3 +27,5 @@
  Type=Application
 -Categories=Applications;Settings;
 +Categories=Settings;
++Keywords=Japanese,Dictionary
++Keywords[ja]=日本語,辞書
