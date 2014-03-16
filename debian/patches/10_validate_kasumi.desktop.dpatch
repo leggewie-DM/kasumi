@@ -27,5 +27,5 @@
  Type=Application
 -Categories=Applications;Settings;
 +Categories=Settings;
-+Keywords=Japanese,Dictionary
-+Keywords[ja]=日本語,辞書
++Keywords=Japanese;Dictionary;
++Keywords[ja]=日本語;辞書;
