@@ -1,3 +1,10 @@
+kasumi (2.5-5) unstable; urgency=low
+
+  * fix error in keywords-syntax in desktop file
+    Many thanks to Anders Jonsson for pointing this out
+
+ -- Rolf Leggewie <foss@rolf.leggewie.biz>  Sun, 16 Mar 2014 13:27:39 +0800
+
 kasumi (2.5-4) unstable; urgency=low
 
   * use dh-autoreconf to update the build system. Closes: #727912
